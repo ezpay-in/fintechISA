@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EZPAY - Smart Banking</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Home Page -->
+  <div id="homePage" class="page">
+    <div class="logo-container">
+      <img src="logo.png.png" alt="EZPAY Logo" class="logo">
+    </div>
+    <h1>Payments just got easier.</h1>
+    <p>Welcome to <b>EZPAY</b>, your modern digital wallet and banking companion. Manage all your financial activities securely from one place.</p>
+    <p>Send or receive money instantly, top up your account, calculate EMIs for loans, and track your last few transactions with ease. Say goodbye to long queues and multiple apps!</p>
+    <button onclick="showRegister()" class="btn">Get Started</button>
+    <button onclick="showLogin()" class="btn secondary">Already Registered? Login</button>
+  </div>
+
+  <!-- Register Page -->
+  <div id="registerPage" class="page hidden">
+    <h2>Create Your EZPAY Account</h2>
+    <p>Registration is quick and easy. Just fill in your details below and you’ll have full access to EZPAY’s smart features.</p>
+    <form id="registerForm">
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Valid Email" required>
+      <input type="number" id="regBalance" placeholder="Initial Bank Balance" required>
+      <input type="password" id="regPassword" placeholder="Password (8 characters)" minlength="8" maxlength="8" required>
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? You can quickly <b>login</b> and start managing your money instantly.</p>
+    <button onclick="showLogin()" class="btn secondary">Login Here</button>
+  </div>
+
+  <!-- Login Page -->
+  <div id="loginPage" class="page hidden">
+    <h2>Login to EZPAY</h2>
+    <p>Welcome back! Please enter your registered email and password to access your personal dashboard. From here, you can manage your funds and review recent transactions.</p>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboardPage" class="page hidden">
+    <h2 id="welcomeMessage"></h2>
+    <p>Manage your finances quickly and securely. Use the actions below to add funds, send money, calculate your EMIs, or view your latest transactions.</p>
+
+    <div class="actions">
+      <button onclick="addMoney()" class="btn">Add Money</button>
+      <button onclick="sendMoney()" class="btn">Send Money</button>
+      <button onclick="showEMI()" class="btn">EMI Calculator</button>
+      <button onclick="showHistory()" class="btn">Transaction History</button>
+    </div>
+
+    <!-- Transaction History -->
+    <div id="transactionHistory" class="hidden">
+      <h3>Your Recent Transactions</h3>
+      <p>Below are your last 5 transactions. Each entry provides the recipient, date, type, transaction ID, and amount for easy tracking.</p>
+      <table id="historyTable" border="1">
+        <thead>
+          <tr>
+            <th>Recipient</th>
+            <th>Date & Time</th>
+            <th>Type</th>
+            <th>Transaction ID</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EMI Calculator -->
+    <div id="emiCalculator" class="hidden">
+      <h3>EMI Calculator</h3>
+      <p>Planning a loan? Enter the principal, interest rate, and tenure to calculate your monthly EMI. This helps you plan your budget wisely.</p>
+      <input type="number" id="principal" placeholder="Principal Amount">
+      <input type="number" id="rate" placeholder="Interest Rate (%)">
+      <input type="number" id="tenure" placeholder="Tenure (months)">
+      <button onclick="calculateEMI()" class="btn">Calculate</button>
+      <p id="emiResult"></p>
+    </div>
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
